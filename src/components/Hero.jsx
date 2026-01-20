@@ -1,70 +1,39 @@
 import { motion } from 'framer-motion';
 import './Hero.css';
 
-// Sequential fade-in animations with upward movement
+// Sequential fade-in animations
 const fadeInUpSequence = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
 };
 
 const Hero = () => {
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     return (
         <section id="hero" className="hero">
             <div className="hero-container">
-                {/* Name - fades in first */}
-                <motion.h1
-                    className="hero-name"
+                {/* Top intro section */}
+                <motion.div
+                    className="hero-intro"
                     {...fadeInUpSequence}
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
                 >
-                    Abin P Anil
-                </motion.h1>
+                    <p className="intro-text">
+                        Hi, I'm <strong>Abin P Anil</strong>, Senior Full-Stack Engineer.
+                    </p>
+                </motion.div>
 
-                {/* Role - appears with small delay */}
+                {/* Large tagline with mixed font weights */}
                 <motion.div
-                    className="hero-role"
+                    className="hero-title-section"
                     {...fadeInUpSequence}
                     transition={{ duration: 0.8, delay: 0.5, ease: [0.33, 1, 0.68, 1] }}
                 >
-                    <span>Senior Full-Stack Engineer</span>
-                </motion.div>
-
-                {/* Tagline - fades in last */}
-                <motion.p
-                    className="hero-tagline"
-                    {...fadeInUpSequence}
-                    transition={{ duration: 0.8, delay: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                >
-                    Building scalable, secure, production-ready
-                    <br />
-                    web applications
-                </motion.p>
-
-                {/* CTAs */}
-                <motion.div
-                    className="hero-ctas"
-                    {...fadeInUpSequence}
-                    transition={{ duration: 0.8, delay: 1.1, ease: [0.33, 1, 0.68, 1] }}
-                >
-                    <button
-                        className="cta-primary"
-                        onClick={() => scrollToSection('work')}
-                    >
-                        View Work
-                    </button>
-                    <button
-                        className="cta-secondary"
-                        onClick={() => scrollToSection('contact')}
-                    >
-                        Get In Touch
-                    </button>
+                    <h1 className="hero-main-title">
+                        <span className="title-bold">Building scalable,</span>{' '}
+                        <span className="title-bold">secure,</span>{' '}
+                        <span className="title-light">production-ready</span>{' '}
+                        <span className="title-light">web applications.</span>
+                    </h1>
                 </motion.div>
             </div>
         </section>
