@@ -34,7 +34,7 @@ const Skills = () => {
             <div className="skills-container">
                 <motion.div className="skills-header" {...scrollReveal}>
                     <div className="section-label">
-                        <span>Technologies</span>
+                        <span>Skills</span>
                     </div>
                     <h2 className="skills-title">Tech Stack</h2>
                 </motion.div>

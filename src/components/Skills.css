@@ -66,7 +66,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .skills {
-    padding: var(--space-4xl) 0;
+    padding: var(--space-2xl) 0;
   }
   
   .skills-header {

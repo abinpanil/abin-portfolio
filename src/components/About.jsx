@@ -53,6 +53,12 @@ const About = () => {
                     <div className="section-label">
                         <span>About</span>
                     </div>
+
+                    <p className="about-intro">
+                        I'm a senior full-stack developer with hands-on experience building and maintaining production web applications.
+                        My work focuses on backend reliability, secure APIs, and clean, scalable frontend architectures.
+                    </p>
+
                     <h2 className="about-title">Areas of Expertise</h2>
                 </motion.div>
 
