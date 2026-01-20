@@ -1,3 +1,8 @@
+/* ===================================
+   PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+/* GPU Acceleration for animated elements */
 .app {
   min-height: 100vh;
   position: relative;
@@ -13,18 +18,19 @@
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 30, 40, 0.4), transparent),
     radial-gradient(ellipse 60% 40% at 80% 80%, rgba(20, 20, 30, 0.3), transparent),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  
+  /* Performance: Use GPU for compositing */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 main {
   padding-top: 72px; /* Account for fixed navigation */
   position: relative;
-}
-
-/* Global layout wrapper for centered content */
-.layout-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+  
+  /* Performance: Contain layout shifts */
+  contain: layout style;
 }
 
 /* Large vertical rhythm between sections */
@@ -32,6 +38,13 @@ section {
   scroll-margin-top: 72px;
   padding: var(--space-5xl) 0;
   position: relative;
+  
+  /* Performance: Isolate sections for better compositing */
+  contain: layout style paint;
+  
+  /* GPU acceleration for animated sections */
+  transform: translateZ(0);
+  will-change: auto; /* Only set when animating */
 }
 
 /* Soft dividers between sections */
@@ -52,6 +65,9 @@ section:not(:last-child)::after {
     transparent
   );
   opacity: 0.5;
+  
+  /* Performance: Use GPU for pseudo-elements */
+  will-change: auto;
 }
 
 /* Hero section - no top padding, no divider */
@@ -71,6 +87,26 @@ section#contact::after {
   display: none;
 }
 
+/* ===================================
+   REDUCED MOTION SUPPORT
+   =================================== */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  section {
+    will-change: auto !important;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   section {
@@ -81,4 +117,5 @@ section#contact::after {
     min-height: 90vh;
   }
 }
+
 
