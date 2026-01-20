@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
+import React, { Suspense, lazy } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import About from './components/About';
-import Work from './components/Work';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
 import './App.css';
+
+// Lazy load below-the-fold content
+const About = lazy(() => import('./components/About'));
+const Work = lazy(() => import('./components/Work'));
+const Skills = lazy(() => import('./components/Skills'));
+const Contact = lazy(() => import('./components/Contact'));
 
 // Global page load transition
 const pageLoadTransition = {
@@ -28,10 +31,12 @@ function App() {
       <Navigation />
       <main>
         <Hero />
-        <About />
-        <Work />
-        <Skills />
-        <Contact />
+        <Suspense fallback={null}>
+          <About />
+          <Work />
+          <Skills />
+          <Contact />
+        </Suspense>
       </main>
     </motion.div>
   );
