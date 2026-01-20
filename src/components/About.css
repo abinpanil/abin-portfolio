@@ -1,4 +1,4 @@
-.about {
+  .about {
   padding: var(--space-5xl) 0;
   background-color: var(--color-bg-primary);
 }
@@ -59,10 +59,10 @@
   );
 }
 
-/* Timeline item */
+/* Timeline item - improved vertical spacing */
 .timeline-item {
   position: relative;
-  padding-bottom: var(--space-3xl);
+  padding-bottom: var(--space-4xl);
 }
 
 .timeline-item:last-child {
@@ -83,19 +83,22 @@
   z-index: 1;
 }
 
-/* Timeline content */
+/* Timeline content - better padding for readability */
 .timeline-content {
-  padding-left: var(--space-md);
+  padding-left: var(--space-lg);
 }
 
+/* Timeline heading - visually distinct, easy to scan */
 .timeline-heading {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-snug);
-  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-md);
   color: var(--color-text-primary);
+  letter-spacing: -0.01em;
 }
 
+/* Timeline description - clear, readable */
 .timeline-description {
   font-size: var(--font-size-base);
   line-height: var(--line-height-relaxed);
@@ -125,11 +128,15 @@
   }
   
   .timeline-item {
-    padding-bottom: var(--space-2xl);
+    padding-bottom: var(--space-3xl);
+  }
+  
+  .timeline-content {
+    padding-left: var(--space-md);
   }
   
   .timeline-heading {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
   }
   
   .timeline-description {
