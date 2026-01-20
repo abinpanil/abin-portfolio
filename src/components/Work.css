@@ -1,0 +1,142 @@
+.work {
+  padding: var(--space-5xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.work-container {
+  max-width: var(--max-width-2xl);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.work-header {
+  margin-bottom: var(--space-4xl);
+  text-align: center;
+}
+
+.work-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-md);
+}
+
+/* 3-column responsive grid with equal-height cards */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2xl);
+  align-items: stretch;
+}
+
+/* Card styling with professional hover effects */
+.project-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  /* Smooth transitions for all hover effects */
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  position: relative;
+}
+
+/* Professional hover effects: elevation, shadow, glow */
+.project-card:hover {
+  /* Subtle elevation */
+  transform: translateY(-6px);
+  
+  /* Soft shadow */
+  box-shadow: 
+    0 12px 24px -8px rgba(0, 0, 0, 0.6),
+    0 4px 8px -2px rgba(0, 0, 0, 0.4);
+  
+  /* Gentle glow on edges */
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 12px 24px -8px rgba(0, 0, 0, 0.6),
+    0 4px 8px -2px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 20px -4px rgba(255, 255, 255, 0.05);
+}
+
+/* Subtitle - descriptive, professional */
+.project-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-primary);
+}
+
+/* Description - factual, one-line */
+.project-description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+  flex-grow: 1;
+}
+
+/* Tech stack tags */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto;
+}
+
+.tech-tag {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  background-color: var(--color-bg-tertiary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.02em;
+  transition: all var(--transition-base);
+}
+
+.project-card:hover .tech-tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+}
+
+/* Responsive: 2 columns on tablet */
+@media (max-width: 1200px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+/* Responsive: 1 column on mobile */
+@media (max-width: 768px) {
+  .work {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .work-header {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .work-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .project-card {
+    padding: var(--space-xl);
+  }
+  
+  .project-subtitle {
+    font-size: var(--font-size-lg);
+  }
+}
+

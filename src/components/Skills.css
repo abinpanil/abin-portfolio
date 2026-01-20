@@ -1,0 +1,89 @@
+.skills {
+  padding: var(--space-5xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.skills-container {
+  max-width: var(--max-width-lg);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.skills-header {
+  margin-bottom: var(--space-4xl);
+  text-align: center;
+}
+
+.skills-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-md);
+}
+
+/* Pill-style chips container */
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Individual chip - pill style with dark surface */
+.tech-chip {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  
+  /* Dark surface with subtle border */
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-light);
+  
+  /* Pill shape */
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: 100px;
+  
+  /* Smooth transitions */
+  transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+  cursor: default;
+  
+  /* Prevent text selection */
+  user-select: none;
+}
+
+/* Hover effect: slight scale-up and brightness change */
+.tech-chip:hover {
+  /* Subtle brightness increase */
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  
+  /* Slight glow */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .skills-header {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .skills-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .tech-chips {
+    gap: var(--space-sm);
+  }
+  
+  .tech-chip {
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-lg);
+  }
+}
+

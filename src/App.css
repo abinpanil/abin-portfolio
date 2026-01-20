@@ -1,0 +1,84 @@
+.app {
+  min-height: 100vh;
+  position: relative;
+  
+  /* Subtle gradient background */
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 30, 40, 0.4), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(20, 20, 30, 0.3), transparent),
+    var(--color-bg-primary);
+  
+  /* Subtle noise texture overlay */
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 30, 40, 0.4), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(20, 20, 30, 0.3), transparent),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+main {
+  padding-top: 72px; /* Account for fixed navigation */
+  position: relative;
+}
+
+/* Global layout wrapper for centered content */
+.layout-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Large vertical rhythm between sections */
+section {
+  scroll-margin-top: 72px;
+  padding: var(--space-5xl) 0;
+  position: relative;
+}
+
+/* Soft dividers between sections */
+section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1100px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border-light) 20%,
+    var(--color-border-light) 80%,
+    transparent
+  );
+  opacity: 0.5;
+}
+
+/* Hero section - no top padding, no divider */
+section#hero {
+  padding-top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+section#hero::after {
+  display: none;
+}
+
+/* Contact section - no divider */
+section#contact::after {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  section#hero {
+    min-height: 90vh;
+  }
+}
+
