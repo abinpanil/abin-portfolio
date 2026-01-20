@@ -4,7 +4,7 @@
 }
 
 .skills-container {
-  max-width: var(--max-width-lg);
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
@@ -15,52 +15,43 @@
 }
 
 .skills-title {
-  font-size: var(--font-size-4xl);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: var(--font-weight-semibold);
   margin-top: var(--space-md);
+  letter-spacing: -0.02em;
 }
 
-/* Pill-style chips container */
-.tech-chips {
+/* Minimal List Layout */
+.skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-md);
-  justify-content: center;
-  max-width: 700px;
-  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Individual chip - pill style with dark surface */
-.tech-chip {
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
+.skill-item {
+  width: 50%; /* 2 columns */
+  padding: var(--space-xl) var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect - subtle highlight */
+.skill-item:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.skill-name {
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
-  
-  /* Dark surface with subtle border */
-  background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-border-light);
-  
-  /* Pill shape */
-  padding: var(--space-sm) var(--space-xl);
-  border-radius: 100px;
-  
-  /* Smooth transitions */
-  transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-  cursor: default;
-  
-  /* Prevent text selection */
-  user-select: none;
+  color: var(--color-text-secondary);
+  transition: all 0.3s ease;
 }
 
-/* Hover effect: slight scale-up and brightness change */
-.tech-chip:hover {
-  /* Subtle brightness increase */
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  
-  /* Slight glow */
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+.skill-item:hover .skill-name {
+  color: var(--color-text-primary);
+  transform: translateX(10px);
 }
 
 /* Responsive adjustments */
@@ -74,16 +65,16 @@
   }
   
   .skills-title {
-    font-size: var(--font-size-3xl);
+    font-size: clamp(1.75rem, 4vw, 3rem);
   }
   
-  .tech-chips {
-    gap: var(--space-sm);
+  .skill-item {
+    width: 100%; /* 1 column on mobile */
+    padding: var(--space-lg) 0;
   }
   
-  .tech-chip {
-    font-size: var(--font-size-sm);
-    padding: var(--space-xs) var(--space-lg);
+  .skill-name {
+    font-size: var(--font-size-xl);
   }
 }
 

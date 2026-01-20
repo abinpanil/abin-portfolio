@@ -18,7 +18,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
                 >
                     <p className="intro-text">
-                        Hi, I'm <strong>Abin P Anil</strong>, Senior Full-Stack Engineer.
+                        Hi, I'm <strong>Abin P Anil</strong>, Full-Stack Developer.
                     </p>
                 </motion.div>
 

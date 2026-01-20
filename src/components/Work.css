@@ -37,9 +37,29 @@
   padding: 50px 40px;
   text-align: left;
   
+  /* Sticky scroll effect */
+  position: sticky;
+  top: 100px;
+  z-index: 1;
+  
+  /* separation line */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
   /* Smooth transitions */
   transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-  position: relative;
+}
+
+/* Different top positions for stacking effect */
+.project-card:nth-child(1) {
+  top: 120px;
+}
+
+.project-card:nth-child(2) {
+  top: 140px;
+}
+
+.project-card:nth-child(3) {
+  top: 160px;
 }
 
 /* Different background tones for each card - matching Contact */

@@ -1,10 +1,10 @@
   .about {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-4xl) 0;
   background-color: var(--color-bg-primary);
 }
 
 .about-container {
-  max-width: var(--max-width-lg);
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
@@ -31,17 +31,17 @@
 .about-intro {
   font-size: var(--font-size-xl);
   line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   max-width: 700px;
   margin: var(--space-2xl) auto var(--space-3xl);
   text-align: center;
 }
 
 .about-title {
-  font-size: var(--font-size-4xl);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 /* Vertical timeline layout */
@@ -52,7 +52,7 @@
   padding-left: var(--space-3xl);
 }
 
-/* Vertical connecting line */
+/* Vertical connecting line - subtle */
 .timeline::before {
   content: '';
   position: absolute;
@@ -60,59 +60,58 @@
   top: 0;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--color-border-light) 10%,
-    var(--color-border-light) 90%,
-    transparent
-  );
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Timeline item - improved vertical spacing */
 .timeline-item {
   position: relative;
-  padding-bottom: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
 }
 
 .timeline-item:last-child {
   padding-bottom: 0;
 }
 
-/* Timeline marker (dot) */
+/* Timeline marker (dot) - minimal */
 .timeline-marker {
   position: absolute;
   left: calc(-1 * var(--space-3xl));
-  top: 6px;
-  width: 10px;
-  height: 10px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: var(--color-text-primary);
-  border: 2px solid var(--color-bg-primary);
-  box-shadow: 0 0 0 1px var(--color-border-light);
+  background-color: var(--color-text-tertiary);
+  transform: translateX(-3.5px); /* Center on line */
   z-index: 1;
+}
+
+.timeline-item:hover .timeline-marker {
+  background-color: var(--color-text-primary);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
 }
 
 /* Timeline content - better padding for readability */
 .timeline-content {
-  padding-left: var(--space-lg);
+  padding-left: var(--space-xl);
 }
 
 /* Timeline heading - visually distinct, easy to scan */
 .timeline-heading {
-  font-size: var(--font-size-2xl);
+  font-size: 18px;
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   color: var(--color-text-primary);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 /* Timeline description - clear, readable */
 .timeline-description {
-  font-size: var(--font-size-base);
+  font-size: 15px;
   line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
 }
 
 /* Responsive adjustments */
@@ -131,7 +130,7 @@
   }
   
   .about-title {
-    font-size: var(--font-size-3xl);
+    font-size: clamp(1.75rem, 4vw, 3rem);
   }
   
   .timeline {
@@ -151,11 +150,11 @@
   }
   
   .timeline-heading {
-    font-size: var(--font-size-xl);
+    font-size: 16px;
   }
   
   .timeline-description {
-    font-size: var(--font-size-sm);
+    font-size: 14px;
   }
 }
 
