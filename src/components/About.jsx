@@ -51,7 +51,7 @@ const About = () => {
             <div className="about-container">
                 <motion.div className="about-header" {...scrollReveal}>
                     <div className="section-label">
-                        <span>Experience</span>
+                        <span>About</span>
                     </div>
                     <h2 className="about-title">Areas of Expertise</h2>
                 </motion.div>

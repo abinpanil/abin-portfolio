@@ -1,8 +1,25 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fadeInDown } from '../utils/animations';
 import './Navigation.css';
 
 const Navigation = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Add 'scrolled' class when user scrolls past 50px
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
@@ -12,7 +29,7 @@ const Navigation = () => {
 
     return (
         <motion.nav
-            className="navigation"
+            className={`navigation ${isScrolled ? 'scrolled' : ''}`}
             {...fadeInDown}
             transition={{ delay: 0.2, duration: 0.6 }}
         >
@@ -22,7 +39,7 @@ const Navigation = () => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                 >
-                    <button onClick={() => scrollToSection('hero')}>Portfolio</button>
+                    <button onClick={() => scrollToSection('hero')}>Abin P Anil</button>
                 </motion.div>
 
                 <ul className="nav-links">
@@ -45,3 +62,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

@@ -44,7 +44,7 @@ const Work = () => {
             <div className="work-container">
                 <motion.div className="work-header" {...scrollReveal}>
                     <div className="section-label">
-                        <span>Experience</span>
+                        <span>Work</span>
                     </div>
                     <h2 className="work-title">Featured Projects</h2>
                 </motion.div>
