@@ -147,17 +147,18 @@ export const pageTransition = {
 
 // Scroll reveal - smooth, not rushed
 export const scrollReveal = {
-  initial: { opacity: 0, y: 50 },
+  initial: { opacity: 0.9, y: 16 },
   whileInView: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: PREMIUM_EASING,
     },
   },
-  viewport: { once: true, margin: "-80px" },
+  viewport: { once: true, margin: "-100px" },
 };
+
 
 // Scroll reveal with stagger
 export const scrollRevealStagger = {

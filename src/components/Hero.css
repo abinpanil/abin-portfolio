@@ -49,6 +49,11 @@
   margin: 0;
 }
 
+.hero-main-title {
+  will-change: transform, opacity;
+  text-rendering: optimizeLegibility;
+}
+
 /* Bold part of title */
 .title-bold {
   font-weight: var(--font-weight-bold);
